@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff005d;
+  background: #ffffbe;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2438,23 +2438,4 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
-}
-body {
-  background-image: url("/images/zsc1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-.post-block {
-  opacity: 0.6;
-}
-.sidebar {
-  background-color: transparent;
-  opacity: 0.5;
-}
-.header-inner {
-  background: rgba(255,255,255,0.2);
-}
-.popup {
-  opacity: 0.6;
 }
