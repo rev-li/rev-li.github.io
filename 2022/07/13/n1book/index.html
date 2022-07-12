@@ -20,15 +20,24 @@
     var CONFIG = {"hostname":"rev-li.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="rev-li">
-<meta property="og:url" content="https://rev-li.github.io/archives/2022/07/index.html">
+  <meta name="description" content="[第九章 CTF之MISC章]两个部分的flag使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg故是个zip修改后缀名，打开压缩包得到一个2.jpg的图片，再用winhex打开，或者直接查看属性，就能看到这么一串字母 Part1： n1book{414e529ece64a77d最后，再回到原来的png，用zsteg检查一下得到Part2：25c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="buuctf-n1book">
+<meta property="og:url" content="https://rev-li.github.io/2022/07/13/n1book/index.html">
 <meta property="og:site_name" content="rev-li">
+<meta property="og:description" content="[第九章 CTF之MISC章]两个部分的flag使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg故是个zip修改后缀名，打开压缩包得到一个2.jpg的图片，再用winhex打开，或者直接查看属性，就能看到这么一串字母 Part1： n1book{414e529ece64a77d最后，再回到原来的png，用zsteg检查一下得到Part2：25c">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://rev-li.github.io/n1book_md_files/9eedf6f0-0209-11ed-a821-13b766b2000c.jpeg?v=1&type=image">
+<meta property="og:image" content="https://rev-li.github.io/n1book_md_files/85b2ced0-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image">
+<meta property="og:image" content="https://rev-li.github.io/n1book_md_files/f1617d20-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image">
+<meta property="og:image" content="https://rev-li.github.io/n1book_md_files/14a72cb0-0221-11ed-99bf-8ba538193f96.jpeg?v=1&type=image">
+<meta property="article:published_time" content="2022-07-12T17:33:24.753Z">
+<meta property="article:modified_time" content="2022-07-12T20:30:05.446Z">
 <meta property="article:author" content="rev-li">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rev-li.github.io/n1book_md_files/9eedf6f0-0209-11ed-a821-13b766b2000c.jpeg?v=1&type=image">
 
-<link rel="canonical" href="https://rev-li.github.io/archives/2022/07/">
+<link rel="canonical" href="https://rev-li.github.io/2022/07/13/n1book/">
 
 
 <script id="page-configurations">
@@ -36,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | rev-li</title>
+  <title>buuctf-n1book | rev-li</title>
   
 
 
@@ -141,150 +150,79 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 7 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://rev-li.github.io/2022/07/13/n1book/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="rev-li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rev-li">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          buuctf-n1book
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-13 01:33:24 / Modified: 04:30:05" itemprop="dateCreated datePublished" datetime="2022-07-13T01:33:24+08:00">2022-07-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-13T01:33:24+08:00"
-              content="2022-07-13">
-          07-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/13/n1book/" itemprop="url">
-            <span itemprop="name">buuctf-n1book</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-11T11:31:51+08:00"
-              content="2022-07-11">
-          07-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/11/re%E9%A2%98%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">My re-solve</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-11T03:57:19+08:00"
-              content="2022-07-11">
-          07-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/11/%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E5%A4%B4%E4%BA%8C%E8%BF%9B%E5%88%B6/" itemprop="url">
-            <span itemprop="name">常见的文件头的二进制</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-10T20:39:30+08:00"
-              content="2022-07-10">
-          07-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/10/misc%E9%A2%98%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">buuctf-MISC2-7题题解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-08T02:55:57+08:00"
-              content="2022-07-08">
-          07-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/08/HTML1/" itemprop="url">
-            <span itemprop="name">my first html program</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-03T00:56:59+08:00"
-              content="2022-07-03">
-          07-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/03/%E5%8A%9B%E6%89%A3%E9%A2%98%E7%9B%AE/" itemprop="url">
-            <span itemprop="name">leetcode</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="第九章-CTF之MISC章-两个部分的flag"><a href="#第九章-CTF之MISC章-两个部分的flag" class="headerlink" title="[第九章 CTF之MISC章]两个部分的flag"></a>[第九章 CTF之MISC章]两个部分的flag</h2><p>使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg<br>故是个zip<br><img src="/n1book_md_files/9eedf6f0-0209-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>修改后缀名，打开压缩包得到一个2.jpg的图片，再用winhex打开，或者直接查看属性，就能看到这么一串字母 Part1： n1book{414e529ece64a77d<br><img src="/n1book_md_files/85b2ced0-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>最后，再回到原来的png，用zsteg检查一下<br><img src="/n1book_md_files/f1617d20-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="输入图片描述"><br>得到Part2：25cc9ee5108a49c6}</p>
+<p>flag{414e529ece64a77d25cc9ee5108a49c6}</p>
+<h2 id="第九章-CTF之MISC章-压缩包中的乐趣"><a href="#第九章-CTF之MISC章-压缩包中的乐趣" class="headerlink" title="[第九章 CTF之MISC章]压缩包中的乐趣"></a>[第九章 CTF之MISC章]压缩包中的乐趣</h2><p>在网上冲浪了许久，只看见一篇关于这题的wp。<br>这里，重点学会了如何在winhex中查看压缩包的无加密、伪加密和真加密以及了解了已知明文解密的方法。这里介绍一个软件：ARCHPR<br>在修改完504B0304及504B0102后面相应的全局方位式标志位后，成功得到一个1.png和一个2.zip<br>在对2.zip进行分析发现是真加密，又发现2.zip中也有1.png，于是选择已知明文攻击。<br><img src="/n1book_md_files/14a72cb0-0221-11ed-99bf-8ba538193f96.jpeg?v=1&type=image"><br>解密成功之后，保存那个zip，就可以得到flag了<br>n1book{665125b99ebb34fe8c74a36e1bf3d958}</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/11/re%E9%A2%98%E8%A7%A3/" rel="prev" title="My re-solve">
+      <i class="fa fa-chevron-left"></i> My re-solve
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -337,6 +275,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-CTF%E4%B9%8BMISC%E7%AB%A0-%E4%B8%A4%E4%B8%AA%E9%83%A8%E5%88%86%E7%9A%84flag"><span class="nav-number">1.</span> <span class="nav-text">[第九章 CTF之MISC章]两个部分的flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-CTF%E4%B9%8BMISC%E7%AB%A0-%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%B8%AD%E7%9A%84%E4%B9%90%E8%B6%A3"><span class="nav-number">2.</span> <span class="nav-text">[第九章 CTF之MISC章]压缩包中的乐趣</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
