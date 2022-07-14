@@ -4,7 +4,7 @@
   /* 背景图像不重复 */
   background-repeat: no-repeat;
   /* 背景图像大小 */
-  background-size: cover;
+  background-size: 90%;
 }
 
 /* 文章页背景 */
