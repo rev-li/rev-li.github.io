@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-13 01:33:24 / Modified: 04:30:05" itemprop="dateCreated datePublished" datetime="2022-07-13T01:33:24+08:00">2022-07-13</time>
+              <time title="Created: 2022-07-13 01:33:24" itemprop="dateCreated datePublished" datetime="2022-07-13T01:33:24+08:00">2022-07-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-15 00:37:24" itemprop="dateModified" datetime="2022-07-15T00:37:24+08:00">2022-07-15</time>
+              </span>
 
           
 
@@ -186,9 +192,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="第九章-CTF之MISC章-两个部分的flag"><a href="#第九章-CTF之MISC章-两个部分的flag" class="headerlink" title="[第九章 CTF之MISC章]两个部分的flag"></a>[第九章 CTF之MISC章]两个部分的flag</h2><p>使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg<br>故是个zip<br><img src="/n1book_md_files/9eedf6f0-0209-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>修改后缀名，打开压缩包得到一个2.jpg的图片，再用winhex打开，或者直接查看属性，就能看到这么一串字母 Part1： n1book{414e529ece64a77d<br><img src="/n1book_md_files/85b2ced0-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>最后，再回到原来的png，用zsteg检查一下<br><img src="/n1book_md_files/f1617d20-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="输入图片描述"><br>得到Part2：25cc9ee5108a49c6}</p>
+          <h2 id="第九章-CTF之MISC章-两个部分的flag"><a href="#第九章-CTF之MISC章-两个部分的flag" class="headerlink" title="[第九章 CTF之MISC章]两个部分的flag"></a>[第九章 CTF之MISC章]两个部分的flag</h2><p>使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg<br>故是个zip<br><img src="/.io//9eedf6f0-0209-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>修改后缀名，打开压缩包得到一个2.jpg的图片，再用winhex打开，或者直接查看属性，就能看到这么一串字母 Part1： n1book{414e529ece64a77d<br><img src="/.io//85b2ced0-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>最后，再回到原来的png，用zsteg检查一下<br><img src="/.io//f1617d20-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="输入图片描述"><br>得到Part2：25cc9ee5108a49c6}</p>
 <p>flag{414e529ece64a77d25cc9ee5108a49c6}</p>
-<h2 id="第九章-CTF之MISC章-压缩包中的乐趣"><a href="#第九章-CTF之MISC章-压缩包中的乐趣" class="headerlink" title="[第九章 CTF之MISC章]压缩包中的乐趣"></a>[第九章 CTF之MISC章]压缩包中的乐趣</h2><p>在网上冲浪了许久，只看见一篇关于这题的wp。<br>这里，重点学会了如何在winhex中查看压缩包的无加密、伪加密和真加密以及了解了已知明文解密的方法。这里介绍一个软件：ARCHPR<br>在修改完504B0304及504B0102后面相应的全局方位式标志位后，成功得到一个1.png和一个2.zip<br>在对2.zip进行分析发现是真加密，又发现2.zip中也有1.png，于是选择已知明文攻击。<br><img src="/n1book_md_files/14a72cb0-0221-11ed-99bf-8ba538193f96.jpeg?v=1&type=image"><br>解密成功之后，保存那个zip，就可以得到flag了<br>n1book{665125b99ebb34fe8c74a36e1bf3d958}</p>
+<h2 id="第九章-CTF之MISC章-压缩包中的乐趣"><a href="#第九章-CTF之MISC章-压缩包中的乐趣" class="headerlink" title="[第九章 CTF之MISC章]压缩包中的乐趣"></a>[第九章 CTF之MISC章]压缩包中的乐趣</h2><p>在网上冲浪了许久，只看见一篇关于这题的wp。<br>这里，重点学会了如何在winhex中查看压缩包的无加密、伪加密和真加密以及了解了已知明文解密的方法。这里介绍一个软件：ARCHPR</p>
+<ul>
+<li><input disabled type="checkbox"> 使用winhex修改标志位</li>
+</ul>
+<p>在修改完504B0304及504B0102后面相应的全局方位式标志位后，成功得到一个1.png和一个2.zip<br>在对2.zip进行分析发现里面的文件是真加密，又发现2.zip中也有1.png，于是选择已知明文攻击。</p>
+<ul>
+<li><input disabled type="checkbox"> 使用ARCHPR选择已知明文攻击得到加密后的压缩包</li>
+</ul>
+<p><img src="/.io//14a72cb0-0221-11ed-99bf-8ba538193f96.jpeg?v=1&type=image"><br>解密成功之后，保存那个zip，就可以得到flag了<br>n1book{665125b99ebb34fe8c74a36e1bf3d958}</p>
+<h2 id="第一章-web入门-常见的搜集"><a href="#第一章-web入门-常见的搜集" class="headerlink" title="[第一章 web入门]常见的搜集"></a>[第一章 web入门]常见的搜集</h2><p><img src="/.io//9fb87630-02f6-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>看网页的描述是敏感文件<br>常见的敏感文件有：</p>
+<pre><code>robots.txt
+gedit备份文件，格式为filename~，如index.php~
+vim备份文件，格式为.filename.swp或者*.swo或者*.swn，如.index.php.swp
+</code></pre>
+<p>按照惯例，先查看页面源码，并没有什么敏感文件<br>于是我先搜索index.php~<br><img src="/.io//87bc36b0-02f7-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>得到flag2:s_v3ry_im<br>既然是flag2那么必然有flag1<br>于是我继续查看robots.txt<br><img src="/.io//d87fdf70-02f7-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>它说flag1在别的路径，于是顺藤摸瓜：<br><img src="/.io//162175f0-02f8-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>得到 flag1:n1book{info_1<br>flag的格式都是左右花括号对称的，那么还有一部分没有找到，于是访问.index.php.swp，此时浏览器自动下载了一份.index.php.swp<br>然后我选择用notepad++打开，直接搜索flag3<br><img src="/.io//04d31cd0-02f9-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>果然有flag3:p0rtant_hack}<br>拼接起来得到flag{info_1s_v3ry_imp0rtant_hack}</p>
+<h2 id="第一章-web入门-粗心的小李"><a href="#第一章-web入门-粗心的小李" class="headerlink" title="[第一章 web入门]粗心的小李"></a>[第一章 web入门]粗心的小李</h2><p>这一题是一个全新的考点：git泄露<br><img src="/.io//27379a10-0391-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>git泄露<br>网上介绍了一款脚本工具：GitHack<br>输入命令后得到页面源代码 index.html<br><img src="/.io//7ab7a3b0-0391-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>打开页面源代码得到flag:<br><img src="/.io//ae9dc5b0-0391-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>flag{git_looks_s0_easyfun}</p>
+<h2 id="第一章-web入门-SQL注入-1"><a href="#第一章-web入门-SQL注入-1" class="headerlink" title="[第一章 web入门]SQL注入-1"></a>[第一章 web入门]SQL注入-1</h2><p>这一题看题目很明显是个sql注入<br><img src="/.io//bd513dc0-0392-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>看见这里有个id&#x3D;1，自然而然让我想到id&#x3D;2,3,4,5<br>直到id&#x3D;3<br><img src="/.io//e9904c50-0392-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>它说在url后面加个&amp;tips&#x3D;1<br><img src="/.io//11c28530-0393-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>于是右上角出现一句SQL语句：select * from notes where id &#x3D;’3’</p>
 
       
     </div>
