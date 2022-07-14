@@ -1,10 +1,9 @@
 #web_bg {
   /* 背景图像的地址（url括号里）  */
   background: url(https://github.com/rev-li/rev-li.github.io/blob/main/backgroud/%E6%98%93%E7%83%8A%E5%8D%83%E7%8E%BA.jpg?raw=true);
-  /* 背景图像不重复 */
-  background-repeat: no-repeat;
+  
   /* 背景图像大小 */
-  background-size: 30%;
+  background-size: contain;
 }
 
 /* 文章页背景 */
