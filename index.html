@@ -147,6 +147,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://rev-li.github.io/2022/07/15/posts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="rev-li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rev-li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/15/posts/" class="post-title-link" itemprop="url">posts</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-15 01:23:26 / Modified: 01:25:59" itemprop="dateCreated datePublished" datetime="2022-07-15T01:23:26+08:00">2022-07-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简单注册器"><a href="#简单注册器" class="headerlink" title="简单注册器"></a>简单注册器</h2><p>下载下来后得到的是一个apk文件，一时间不知道怎么办，直接androidkiller打开，发现好像是java代码，但是看不懂，一番百度后得知，这是字节码，自然看不懂</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/15/posts/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://rev-li.github.io/2022/07/13/n1book/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -178,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-15 00:37:24" itemprop="dateModified" datetime="2022-07-15T00:37:24+08:00">2022-07-15</time>
+                <time title="Modified: 2022-07-15 01:14:04" itemprop="dateModified" datetime="2022-07-15T01:14:04+08:00">2022-07-15</time>
               </span>
 
           
@@ -192,26 +258,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="第九章-CTF之MISC章-两个部分的flag"><a href="#第九章-CTF之MISC章-两个部分的flag" class="headerlink" title="[第九章 CTF之MISC章]两个部分的flag"></a>[第九章 CTF之MISC章]两个部分的flag</h2><p>使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg<br>故是个zip<br><img src="/.io//9eedf6f0-0209-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>修改后缀名，打开压缩包得到一个2.jpg的图片，再用winhex打开，或者直接查看属性，就能看到这么一串字母 Part1： n1book{414e529ece64a77d<br><img src="/.io//85b2ced0-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="网速太慢了，看不到我"><br>最后，再回到原来的png，用zsteg检查一下<br><img src="/.io//f1617d20-020a-11ed-a821-13b766b2000c.jpeg?v=1&type=image" alt="输入图片描述"><br>得到Part2：25cc9ee5108a49c6}</p>
-<p>flag{414e529ece64a77d25cc9ee5108a49c6}</p>
-<h2 id="第九章-CTF之MISC章-压缩包中的乐趣"><a href="#第九章-CTF之MISC章-压缩包中的乐趣" class="headerlink" title="[第九章 CTF之MISC章]压缩包中的乐趣"></a>[第九章 CTF之MISC章]压缩包中的乐趣</h2><p>在网上冲浪了许久，只看见一篇关于这题的wp。<br>这里，重点学会了如何在winhex中查看压缩包的无加密、伪加密和真加密以及了解了已知明文解密的方法。这里介绍一个软件：ARCHPR</p>
-<ul>
-<li><input disabled type="checkbox"> 使用winhex修改标志位</li>
-</ul>
-<p>在修改完504B0304及504B0102后面相应的全局方位式标志位后，成功得到一个1.png和一个2.zip<br>在对2.zip进行分析发现里面的文件是真加密，又发现2.zip中也有1.png，于是选择已知明文攻击。</p>
-<ul>
-<li><input disabled type="checkbox"> 使用ARCHPR选择已知明文攻击得到加密后的压缩包</li>
-</ul>
-<p><img src="/.io//14a72cb0-0221-11ed-99bf-8ba538193f96.jpeg?v=1&type=image"><br>解密成功之后，保存那个zip，就可以得到flag了<br>n1book{665125b99ebb34fe8c74a36e1bf3d958}</p>
-<h2 id="第一章-web入门-常见的搜集"><a href="#第一章-web入门-常见的搜集" class="headerlink" title="[第一章 web入门]常见的搜集"></a>[第一章 web入门]常见的搜集</h2><p><img src="/.io//9fb87630-02f6-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>看网页的描述是敏感文件<br>常见的敏感文件有：</p>
-<pre><code>robots.txt
-gedit备份文件，格式为filename~，如index.php~
-vim备份文件，格式为.filename.swp或者*.swo或者*.swn，如.index.php.swp
-</code></pre>
-<p>按照惯例，先查看页面源码，并没有什么敏感文件<br>于是我先搜索index.php~<br><img src="/.io//87bc36b0-02f7-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>得到flag2:s_v3ry_im<br>既然是flag2那么必然有flag1<br>于是我继续查看robots.txt<br><img src="/.io//d87fdf70-02f7-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>它说flag1在别的路径，于是顺藤摸瓜：<br><img src="/.io//162175f0-02f8-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>得到 flag1:n1book{info_1<br>flag的格式都是左右花括号对称的，那么还有一部分没有找到，于是访问.index.php.swp，此时浏览器自动下载了一份.index.php.swp<br>然后我选择用notepad++打开，直接搜索flag3<br><img src="/.io//04d31cd0-02f9-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>果然有flag3:p0rtant_hack}<br>拼接起来得到flag{info_1s_v3ry_imp0rtant_hack}</p>
-<h2 id="第一章-web入门-粗心的小李"><a href="#第一章-web入门-粗心的小李" class="headerlink" title="[第一章 web入门]粗心的小李"></a>[第一章 web入门]粗心的小李</h2><p>这一题是一个全新的考点：git泄露<br><img src="/.io//27379a10-0391-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>git泄露<br>网上介绍了一款脚本工具：GitHack<br>输入命令后得到页面源代码 index.html<br><img src="/.io//7ab7a3b0-0391-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>打开页面源代码得到flag:<br><img src="/.io//ae9dc5b0-0391-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>flag{git_looks_s0_easyfun}</p>
-<h2 id="第一章-web入门-SQL注入-1"><a href="#第一章-web入门-SQL注入-1" class="headerlink" title="[第一章 web入门]SQL注入-1"></a>[第一章 web入门]SQL注入-1</h2><p>这一题看题目很明显是个sql注入<br><img src="/.io//bd513dc0-0392-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>看见这里有个id&#x3D;1，自然而然让我想到id&#x3D;2,3,4,5<br>直到id&#x3D;3<br><img src="/.io//e9904c50-0392-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>它说在url后面加个&amp;tips&#x3D;1<br><img src="/.io//11c28530-0393-11ed-8d7d-874ff4f0dc01.jpeg?v=1&type=image" alt="输入图片描述"><br>于是右上角出现一句SQL语句：select * from notes where id &#x3D;’3’</p>
-
+          <h2 id="第九章-CTF之MISC章-两个部分的flag"><a href="#第九章-CTF之MISC章-两个部分的flag" class="headerlink" title="[第九章 CTF之MISC章]两个部分的flag"></a>[第九章 CTF之MISC章]两个部分的flag</h2><p>使用winhex或者stegsolve打开这个png文件，可以发现是以PK结尾，且 前面有个2.jpg<br>故是个zip</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/13/n1book/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -261,7 +316,7 @@ vim备份文件，格式为.filename.swp或者*.swo或者*.swn，如.index.php.s
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-12 01:55:54" itemprop="dateModified" datetime="2022-07-12T01:55:54+08:00">2022-07-12</time>
+                <time title="Modified: 2022-07-15 01:19:51" itemprop="dateModified" datetime="2022-07-15T01:19:51+08:00">2022-07-15</time>
               </span>
 
           
@@ -275,19 +330,15 @@ vim备份文件，格式为.filename.swp或者*.swo或者*.swn，如.index.php.s
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="简单注册器"><a href="#简单注册器" class="headerlink" title="简单注册器"></a>简单注册器</h2><p>下载下来后得到的是一个apk文件，一时间不知道怎么办，直接androidkiller打开，发现好像是java代码，但是看不懂，一番百度后得知，这是字节码，自然看不懂<br>经推荐，说是要用一个叫jeb的软件，按Tab件直接翻译成可看懂得代码：<br><img src="/re%E9%A2%98%E8%A7%A3_md_files/9b2265f0-00ca-11ed-b125-0584909eaabf.jpeg?v=1&type=image" alt="输入图片描述"><br>然后经过一番勘察后，以及结合百度所说，要根据程序代码写脚本<br>下面是我自己写的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="string">&#x27;dd2940c04462b4dd7c450528835cca15&#x27;</span>  </span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">str</span>)  </span><br><span class="line">  </span><br><span class="line">a[<span class="number">2</span>] = <span class="built_in">chr</span>(<span class="built_in">ord</span>(a[<span class="number">2</span>])+<span class="built_in">ord</span>(a[<span class="number">3</span>])-<span class="number">50</span>)  </span><br><span class="line">a[<span class="number">4</span>] = <span class="built_in">chr</span>(<span class="built_in">ord</span>(a[<span class="number">2</span>])+<span class="built_in">ord</span>(a[<span class="number">5</span>])-<span class="number">0x30</span>)  </span><br><span class="line">a[<span class="number">30</span>] = <span class="built_in">chr</span>(<span class="built_in">ord</span>(a[<span class="number">0x1F</span>])+<span class="built_in">ord</span>(a[<span class="number">9</span>])-<span class="number">0x30</span>)  </span><br><span class="line">a[<span class="number">14</span>] = <span class="built_in">chr</span>(<span class="built_in">ord</span>(a[<span class="number">27</span>])+<span class="built_in">ord</span>(a[<span class="number">28</span>])-<span class="number">97</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">16</span>):  </span><br><span class="line">    tmp=a[<span class="number">0x1F</span>-i]  </span><br><span class="line">    a[<span class="number">0x1F</span>-i]=a[i]  </span><br><span class="line">    a[i]=tmp  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join(a))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>期间有一直停留的地方就是不熟练chr()和ord()这两个函数，导致卡了好久<br>flag{59acc538825054c7de4b26440c0999dd}</p>
-<h2 id="GWCTF-2019-pyre"><a href="#GWCTF-2019-pyre" class="headerlink" title="[GWCTF 2019]pyre"></a>[GWCTF 2019]pyre</h2><p>这道题也是很逆向了<br>一开始给了我一个pyc文件，我一时不知道怎么来<br>度娘又说要去收个python反编译工具，于是我收到一个在线反编译的工具，一传文件，一反编译，发现还挺好用的<br>于是我看着代码，估摸着code应该就是我们脚本里面的初始值，不过没想到要反过来求input，是看了别人的wp，才知道的<br>于是搞了好一会。中间还睡觉了<br>这是我一边借鉴，一边敲的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">code = [  </span><br><span class="line">    <span class="string">&#x27;\x1f&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x12&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x1d&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;(&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;0&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;4&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x01&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x06&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x14&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;4&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;,&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x1b&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;U&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;?&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;o&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;6&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;*&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;:&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x01&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;D&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;;&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;%&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;\x13&#x27;</span>]  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(code)-<span class="number">2</span>, -<span class="number">1</span>, -<span class="number">1</span>):<span class="comment">#到-1是因为考虑到下标为0时  </span></span><br><span class="line">  code[i] = <span class="built_in">chr</span>(<span class="built_in">ord</span>(code[i]) ^ <span class="built_in">ord</span>(code[i + <span class="number">1</span>]))  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(code)):  </span><br><span class="line">    code[i] = <span class="built_in">chr</span>((<span class="built_in">ord</span>(code[i])-i) % <span class="number">128</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join(code))</span><br></pre></td></tr></table></figure>
-<p>还是要注意使用chr()和ord()<br>运行结果：GWHT{Just_Re_1s_Ha66y!}<br>但是注意flag{Just_Re_1s_Ha66y!}</p>
-<h2 id="ACTF新生赛2020-easyre"><a href="#ACTF新生赛2020-easyre" class="headerlink" title="[ACTF新生赛2020]easyre"></a>[ACTF新生赛2020]easyre</h2><p>这题有点难度了<br>首先，是个pe文件，就先拖进peid查看一下信息，有个upx的壳</p>
-<p>可以使用三种方法脱壳：<br>    1. 最简单的一种方法就是直接使用upx -d的方式。<br>后面两种方法都需要用到ida远程调试的功能<br>    2. 是esp定律，先将文件拖入ida，运行第一句指令，然后跳转到esp指向的地址，下断点看看那个大跳转跳到哪里。<br>    3. 也是在ida里完成的，主要看start函数的结尾的jmp跳转的位置然后转反汇编代码。<br>然后就是分析代码了</p>
-<p>分析：我们要求的东西就是 我们输入的东西的值+1 的字符型组成的数组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">data =  [  </span><br><span class="line">  <span class="number">0x7E</span>, <span class="number">0x7D</span>, <span class="number">0x7C</span>, <span class="number">0x7B</span>, <span class="number">0x7A</span>, <span class="number">0x79</span>, <span class="number">0x78</span>, <span class="number">0x77</span>, <span class="number">0x76</span>, <span class="number">0x75</span>,  </span><br><span class="line">  <span class="number">0x74</span>, <span class="number">0x73</span>, <span class="number">0x72</span>, <span class="number">0x71</span>, <span class="number">0x70</span>, <span class="number">0x6F</span>, <span class="number">0x6E</span>, <span class="number">0x6D</span>, <span class="number">0x6C</span>, <span class="number">0x6B</span>,  </span><br><span class="line">  <span class="number">0x6A</span>, <span class="number">0x69</span>, <span class="number">0x68</span>, <span class="number">0x67</span>, <span class="number">0x66</span>, <span class="number">0x65</span>, <span class="number">0x64</span>, <span class="number">0x63</span>, <span class="number">0x62</span>, <span class="number">0x61</span>,  </span><br><span class="line">  <span class="number">0x60</span>, <span class="number">0x5F</span>, <span class="number">0x5E</span>, <span class="number">0x5D</span>, <span class="number">0x5C</span>, <span class="number">0x5B</span>, <span class="number">0x5A</span>, <span class="number">0x59</span>, <span class="number">0x58</span>, <span class="number">0x57</span>,  </span><br><span class="line">  <span class="number">0x56</span>, <span class="number">0x55</span>, <span class="number">0x54</span>, <span class="number">0x53</span>, <span class="number">0x52</span>, <span class="number">0x51</span>, <span class="number">0x50</span>, <span class="number">0x4F</span>, <span class="number">0x4E</span>, <span class="number">0x4D</span>,  </span><br><span class="line">  <span class="number">0x4C</span>, <span class="number">0x4B</span>, <span class="number">0x4A</span>, <span class="number">0x49</span>, <span class="number">0x48</span>, <span class="number">0x47</span>, <span class="number">0x46</span>, <span class="number">0x45</span>, <span class="number">0x44</span>, <span class="number">0x43</span>,  </span><br><span class="line">  <span class="number">0x42</span>, <span class="number">0x41</span>, <span class="number">0x40</span>, <span class="number">0x3F</span>, <span class="number">0x3E</span>, <span class="number">0x3D</span>, <span class="number">0x3C</span>, <span class="number">0x3B</span>, <span class="number">0x3A</span>, <span class="number">0x39</span>,  </span><br><span class="line">  <span class="number">0x38</span>, <span class="number">0x37</span>, <span class="number">0x36</span>, <span class="number">0x35</span>, <span class="number">0x34</span>, <span class="number">0x33</span>, <span class="number">0x32</span>, <span class="number">0x31</span>, <span class="number">0x30</span>, <span class="number">0x2F</span>,  </span><br><span class="line">  <span class="number">0x2E</span>, <span class="number">0x2D</span>, <span class="number">0x2C</span>, <span class="number">0x2B</span>, <span class="number">0x2A</span>, <span class="number">0x29</span>, <span class="number">0x28</span>, <span class="number">0x27</span>, <span class="number">0x26</span>, <span class="number">0x25</span>,  </span><br><span class="line">  <span class="number">0x24</span>, <span class="number">0x23</span>, <span class="number">0x20</span>, <span class="number">0x21</span>, <span class="number">0x22</span>, <span class="number">0x00</span>  </span><br><span class="line">]  </span><br><span class="line">  </span><br><span class="line">v4 = <span class="string">&#x27;*&#x27;</span>  </span><br><span class="line">v5 = <span class="string">&#x27;F&#x27;</span>  </span><br><span class="line">v6 = <span class="string">&#x27;\&#x27;&#x27;</span>  </span><br><span class="line">v7 = <span class="string">&#x27;&quot;&#x27;</span>  </span><br><span class="line">v8 = <span class="string">&#x27;N&#x27;</span>  </span><br><span class="line">v9 = <span class="string">&#x27;,&#x27;</span>  </span><br><span class="line">v10 = <span class="string">&#x27;&quot;&#x27;</span>  </span><br><span class="line">v11 = <span class="string">&#x27;(&#x27;</span>  </span><br><span class="line">v12 = <span class="string">&#x27;I&#x27;</span>  </span><br><span class="line">v13 = <span class="string">&#x27;?&#x27;</span>  </span><br><span class="line">v14 = <span class="string">&#x27;+&#x27;</span>  </span><br><span class="line">v15 = <span class="string">&#x27;@&#x27;</span>  </span><br><span class="line">  </span><br><span class="line">key = v4+v5+v6+v7+v8+v9+v10+v11+v12+v13+v14+v15  </span><br><span class="line">  </span><br><span class="line">flag=<span class="string">&#x27;flag&#123;&#x27;</span>  </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> key:  </span><br><span class="line">  pos=data.index(<span class="built_in">ord</span>(i))+<span class="number">1</span>  </span><br><span class="line">  flag+=<span class="built_in">chr</span>(pos)  </span><br><span class="line">flag+=<span class="string">&#x27;&#125;&#x27;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
-
-
+          <h2 id="简单注册器"><a href="#简单注册器" class="headerlink" title="简单注册器"></a>简单注册器</h2><p>下载下来后得到的是一个apk文件，一时间不知道怎么办，直接androidkiller打开，发现好像是java代码，但是看不懂，一番百度后得知，这是字节码，自然看不懂</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/11/re%E9%A2%98%E8%A7%A3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -710,7 +761,7 @@ vim备份文件，格式为.filename.swp或者*.swo或者*.swn，如.index.php.s
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
