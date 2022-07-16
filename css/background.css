@@ -1,6 +1,6 @@
 #web_bg {
   /* 背景图像的地址（url括号里）  */
-  background: no-repeat center/50% url(https://github.com/rev-li/rev-li.github.io/blob/main/backgroud/%E6%98%93%E7%83%8A%E5%8D%83%E7%8E%BA.jpg?raw=true);
+  background: no-repeat center/50% url(/img/易烊千玺2.jpg);
 
 }
 
@@ -13,5 +13,5 @@
 /* 所有页面背景 */
 #aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page, .layout_post>#post, .read-mode .layout_post>#post{
   /* 以下代表透明度为0.5 */
-  background: rgba(255,255,255,.1);
+  background: rgba(255,255,255,.3);
 }
