@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【HTML+CSS】50行代码实现弥散阴影效果的按钮</title>
+    <style type="text/css">
+        /* 清除内、外边距 */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .button{
+            border:none;
+            padding: 2rem 6.5rem;
+            margin: 6rem 12rem;
+            /* 渐变效果 */
+            background: linear-gradient(to right,#f83945 0%,#3d3993 80%);
+            border-radius: 5rem;
+            /* 字体颜色 */
+            color:  #ffffff;
+            font-size: 3.5rem;
+            /* 字间距 */
+            letter-spacing: 0.3rem;
+            /* 大写字母 */
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .button::before {
+            /* content: "" ;代表由内容，但是内容为空，但可以给他设置背景颜色之类的属性
+            content: none; 代表无任何内容，自然也就看不见任何东西*/
+            content: "";
+            background: inherit;/*继承.button的background*/
+            width: 85%;
+            height: 3.5rem;
+            position: absolute;
+            left: 3rem;
+            bottom: 0;
+            z-index: -1;
+            /* 添加模糊效果 */
+            filter: blur(1rem);
+        }
+    </style>
+</head>
+<body>
+    <button class="button">affirm</button>
+</body>
+</html>
