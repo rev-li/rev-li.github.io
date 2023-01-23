@@ -407,7 +407,7 @@
             
 
   
-    <article id="post-buuctf-misc暴力解密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-buuctf-misc-rar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -415,7 +415,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/07/28/buuctf-misc%E6%9A%B4%E5%8A%9B%E8%A7%A3%E5%AF%86/" target="_blank">buuctf-misc(rar)</a>
+	  <a class="article-title" href="/2022/07/28/buuctf-misc-rar/" target="_blank">buuctf-misc(密码破解)</a>
   
     </h1>
   
@@ -423,7 +423,7 @@
 
   
   
-<a href="/2022/07/28/buuctf-misc%E6%9A%B4%E5%8A%9B%E8%A7%A3%E5%AF%86/" class="archive-article-date">
+<a href="/2022/07/28/buuctf-misc-rar/" class="archive-article-date">
         <time datetime="2022-07-27T17:47:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-28</time>
 </a>
 
@@ -442,12 +442,29 @@
     
 
     
-    <p><img src="/2.png"></p>
+    <h2 id="RAR"><a href="#RAR" class="headerlink" title="RAR"></a>RAR</h2><p><img src="/2.png"></p>
 <p>由于题目很明显的说是4位纯数字的密码，所以直接使用ARCHPR破解即可</p>
 <p>ps：可以选择暴力，也可以是掩码破解</p>
 <p>密码是8759</p>
 <p>flag{1773c5da790bd3caff38e3decd180eb7}</p>
 <p><img src="/1.png" alt="正确提交flag"></p>
+<h2 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h2><p><img src="/2.1.png"></p>
+<p>题目很明显地说是4位纯数字，于是我们再一次打开ARCHPR进行暴力</p>
+<p>这一次有点弯子，flag.txt文件里面是base64加密的</p>
+<p><img src="/2.2.png"></p>
+<p>不过这也难不倒我</p>
+<p>直接复制然后base64在线解密就好</p>
+<p><img src="/2.3.png"></p>
+<p>flag{70354300a5100ba78068805661b93a5c}</p>
+<h2 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h2><p>根据题目知这是一个伪加密，考察的点就是zip伪加密</p>
+<p>主要就是看504B0304后 2 个比特和504B0102后 4 个比特是奇数还是偶数</p>
+<p>通常，0900和0900是加密、0000和0000是无加密、0000和0900是伪加密</p>
+<p>但是本题用winhex查看之后是加密的，但是题目说是无加密，所以我们试试给他改为0000 和0000</p>
+<p><img src="/3.1.png"></p>
+<p>flag{Adm1N-B2G-kU-SZIP}</p>
+<h2 id="文件中的秘密"><a href="#文件中的秘密" class="headerlink" title="文件中的秘密"></a>文件中的秘密</h2><p>这一题主要用stegsolve打开，然后点击file format analysis</p>
+<p>然后不停往上查看 就会看到flag</p>
+<p><img src="/4.1.png"></p>
 
     
     
@@ -473,7 +490,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/28/buuctf-misc%E6%9A%B4%E5%8A%9B%E8%A7%A3%E5%AF%86/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/07/28/buuctf-misc-rar/">展开全文 >></a>
     </p>
     
 
@@ -843,11 +860,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,7 +880,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -871,11 +888,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">misc</a>
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">misc</a>
               </li>
              
               <li class="article-tag-list-item">
