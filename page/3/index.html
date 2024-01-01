@@ -145,6 +145,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://rev-li.github.io/2022/09/09/buuctf-re-usualcrypto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="rev_l">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rev-li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/09/buuctf-re-usualcrypto/" class="post-title-link" itemprop="url">buuctf-re-usualcrypt</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-09 18:31:00 / 修改时间：19:43:32" itemprop="dateCreated datePublished" datetime="2022-09-09T18:31:00+08:00">2022-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/buuctf/" itemprop="url" rel="index"><span itemprop="name">buuctf</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="ACTF新生赛2020-usualCrypt"><a href="#ACTF新生赛2020-usualCrypt" class="headerlink" title="[ACTF新生赛2020]usualCrypt"></a>[ACTF新生赛2020]usualCrypt</h2><p><img src="/1.png"></p>
+<p>拖进ida，分析发现是多重加密的base64加密</p>
+<p>先是base64加密，再用替换过的秘钥表加密，最后大小写转换得到密文：zMXHz3TIgnxLxJhFAdtZn2fFk3lYCrtPC2l9</p>
+<p>所以我们要先对它大小写转换</p>
+<p>再用替换表解密</p>
+<p>再base64解密</p>
+<p>脚本如下：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">model = <span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line">trantable = <span class="string">&#x27;ABCDEFQRSTUVWXYPGHIJKLMNOZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"></span><br><span class="line">cipert = <span class="string">&#x27;zMXHz3TIgnxLxJhFAdtZn2fFk3lYCrtPC2l9&#x27;</span></span><br><span class="line"></span><br><span class="line">plaint1 = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cipert:</span><br><span class="line">    <span class="keyword">if</span> i.isupper():</span><br><span class="line">        plaint1 += i.lower()</span><br><span class="line">    <span class="keyword">elif</span> i.islower():</span><br><span class="line">        plaint1 += i.upper()</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        plaint1 += i</span><br><span class="line"><span class="built_in">print</span>(plaint1)</span><br><span class="line"></span><br><span class="line">plaint2 = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">plaint2 = base64.b64decode(plaint1.translate(<span class="built_in">str</span>.maketrans(model,trantable)))</span><br><span class="line"><span class="built_in">print</span>(plaint2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网络上的脚本如下:</span></span><br><span class="line"><span class="comment">## 用的是词典的键值对来对应替换</span></span><br><span class="line"><span class="comment"># import base64</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># flag = &#x27;&#x27;; dict = &#123;&#125;; offset = 10</span></span><br><span class="line"><span class="comment"># orgin = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"><span class="comment"># for i in range(len(orgin)):</span></span><br><span class="line"><span class="comment">#     dict[orgin[i]] = orgin[i]</span></span><br><span class="line"><span class="comment"># for i in range(6, 15): #sub_401000()</span></span><br><span class="line"><span class="comment">#     dict[orgin[i]] , dict[orgin[i+offset]] = dict[orgin[i+offset]] , dict[orgin[i]] # 恢复base64密钥表</span></span><br><span class="line"><span class="comment"># secret = &#x27;zMXHz3TIgnxLxJhFAdtZn2fFk3lYCrtPC2l9&#x27;.swapcase() #sub_401030()</span></span><br><span class="line"><span class="comment"># for i in range(len(secret)):</span></span><br><span class="line"><span class="comment">#     flag += dict[secret[i]] </span></span><br><span class="line"><span class="comment"># flag = base64.b64decode(flag)</span></span><br><span class="line"><span class="comment"># print(flag)</span></span><br></pre></td></tr></table></figure>
+
+<p>flag{bAse64_h2s_a_Surprise}</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://rev-li.github.io/2022/09/06/print%E4%B9%B1%E7%A0%81-vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1013,87 +1090,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://rev-li.github.io/2022/07/28/buuctf-misc-rar/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="rev_l">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rev-li">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/28/buuctf-misc-rar/" class="post-title-link" itemprop="url">buuctf-misc(密码破解)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-28 01:47:48 / 修改时间：02:58:35" itemprop="dateCreated datePublished" datetime="2022-07-28T01:47:48+08:00">2022-07-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RAR"><a href="#RAR" class="headerlink" title="RAR"></a>RAR</h2><p><img src="/2.png"></p>
-<p>由于题目很明显的说是4位纯数字的密码，所以直接使用ARCHPR破解即可</p>
-<p>ps：可以选择暴力，也可以是掩码破解</p>
-<p>密码是8759</p>
-<p>flag{1773c5da790bd3caff38e3decd180eb7}</p>
-<p><img src="/1.png" alt="正确提交flag"></p>
-<h2 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h2><p><img src="/2.1.png"></p>
-<p>题目很明显地说是4位纯数字，于是我们再一次打开ARCHPR进行暴力</p>
-<p>这一次有点弯子，flag.txt文件里面是base64加密的</p>
-<p><img src="/2.2.png"></p>
-<p>不过这也难不倒我</p>
-<p>直接复制然后base64在线解密就好</p>
-<p><img src="/2.3.png"></p>
-<p>flag{70354300a5100ba78068805661b93a5c}</p>
-<h2 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h2><p>根据题目知这是一个伪加密，考察的点就是zip伪加密</p>
-<p>主要就是看504B0304后 2 个比特和504B0102后 4 个比特是奇数还是偶数</p>
-<p>通常，0900和0900是加密、0000和0000是无加密、0000和0900是伪加密</p>
-<p>但是本题用winhex查看之后是加密的，但是题目说是无加密，所以我们试试给他改为0000 和0000</p>
-<p><img src="/3.1.png"></p>
-<p>flag{Adm1N-B2G-kU-SZIP}</p>
-<h2 id="文件中的秘密"><a href="#文件中的秘密" class="headerlink" title="文件中的秘密"></a>文件中的秘密</h2><p>这一题主要用stegsolve打开，然后点击file format analysis</p>
-<p>然后不停往上查看 就会看到flag</p>
-<p><img src="/4.1.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1163,7 +1159,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
